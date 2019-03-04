@@ -32,7 +32,11 @@ RUN [ "cross-build-end" ]
 VOLUME /var/lib/mysql
 
 COPY docker-entrypoint.sh /usr/local/bin/
+
+RUN [ "cross-build-start" ]
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
+RUN [ "cross-build-end" ]
+
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
 EXPOSE 3306
